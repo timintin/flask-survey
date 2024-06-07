@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Question {{ question_num + 1 }}</title>
+  </head>
+  <body>
+    <h1>{{ question.question }}</h1>
+    <form action="/answer" method="POST">
+      {% for choice in question.choices %}
+        <div>
+          <input type="radio" id="{{ choice }}" name="answer" value="{{ choice }}">
+          <label for="{{ choice }}">{{ choice }}</label>
+        </div>
+      {% endfor %}
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
